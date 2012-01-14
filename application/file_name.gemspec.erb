@@ -1,0 +1,22 @@
+require File.join([File.dirname(__FILE__),'lib','<%= file_name %>','version.rb'])
+spec = Gem::Specification.new do |s| 
+  s.name = '<%= file_name %>'
+  s.version = <%= klass %>::VERSION
+  s.author = 'Ben Griffiths'
+  s.email = 'bengriffiths@gmail.com'
+  s.homepage = 'http://techbelly.com'
+  s.platform = Gem::Platform::RUBY
+#TODO: Project needs a summary
+  s.summary = ''
+  s.files = %w(
+bin/<%= file_name %>
+  )
+  s.require_paths << 'lib'
+  s.has_rdoc = true
+  s.extra_rdoc_files = ['README.rdoc','<%= file_name %>.rdoc']
+  s.rdoc_options << '--title' << '<%= file_name %>' << '--main' << 'README.rdoc' << '-ri'
+  s.bindir = 'bin'
+  s.executables << '<%= file_name %>'
+  s.add_development_dependency('rake')
+  s.add_development_dependency('rdoc')
+end
